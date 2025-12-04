@@ -1,14 +1,32 @@
-import express from 'express'
-import {ENV} from './config/env.js'
-import {connectDB} from './config/db.js'
-const app=express()
+import express from "express";
+import { ENV } from "./config/env.js";
+import { connectDB } from "./config/db.js";
+import { clerkMiddleware } from "@clerk/express";
+import { functions } from "./config/inngest.js";
+import { serve } from "inngest/express";
+const app = express();
 
+app.use(express.json());
 
-app.get('/',(req,res)=>{
-    res.send('hey anshika')
-})
+app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use(clerkMiddleware());
+app.get("/", (req, res) => {
+  functions.syncUser();
+  res.send("hey anshika");
+});
+const startServer = async () => {
+  try {
+    await connectDB();
+    if (ENV.NODE_ENV !== Production) {
+      app.listen(ENV.PORT, () => {
+        console.log("Server is running on port:", ENV.PORT);
+      });
+    }
+  } catch (err) {
+    console.error("Error Starting Server");
+    process.exit(1);
+  }
+};
+startServer();
 
-app.listen(ENV.PORT,()=>{
-    console.log('Server is running on port:',ENV.PORT);
-    connectDB()
-})
+export default app;
