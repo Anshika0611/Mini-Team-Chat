@@ -68,3 +68,24 @@ cd frontend
 npm install
 npm run dev
 ```
+##  Tech Stack Used
+
+### Frontend
+- React Vite
+- Tailwind Css
+### Backend
+- Node.js
+- Express.js
+### Database
+- MongoDB
+### External Tools 
+- Clerk
+- Inngest
+- Stream
+- Sentry
+
+##  Optional Implemented Features
+- Private Channels
+- Typing Indicators
+- Video Calling
+- Invite to private channels
