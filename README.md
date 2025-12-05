@@ -23,7 +23,7 @@ Highlights:
 ### Backend (`/backend`)
 
 ```
-PORT=5001
+PORT=5000
 MONGO_URI=your_mongo_uri_here
 
 NODE_ENV=development
