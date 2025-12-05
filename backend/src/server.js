@@ -1,6 +1,5 @@
 import "../instrument.js";
 import express from "express";
-
 import { ENV } from "./config/env.js";
 import { connectDB } from "./config/db.js";
 import { clerkMiddleware } from "@clerk/express";
@@ -8,10 +7,10 @@ import { inngest, functions } from "./config/inngest.js";
 import { serve } from "inngest/express";
 import chatRoutes from "./Routes/chats.js";
 import * as Sentry from "@sentry/node";
+import cors from 'cors'
+
 const app = express();
-// Sentry handlers must come before any routes
-// app.use(Sentry.Handlers.requestHandler());
-// app.use(Sentry.Handlers.tracingHandler());
+app.use(cors({origin:'http://localhost:5173', credentials:true}))
 
 app.use(express.json());
 app.use(clerkMiddleware());
