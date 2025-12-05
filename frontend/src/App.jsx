@@ -3,7 +3,7 @@ import { SignedIn, SignedOut, useAuth } from "@clerk/clerk-react";
 import { Navigate, Route, Routes } from "react-router";
 import HomePage from "./Pages/HomePage";
 import AuthPage from "./Pages/AuthPage";
-// import CallPage from "./Pages/CallPage";
+import CallPage from "./Pages/CallPage";
 import toast from "react-hot-toast";
 import * as Sentry from "@sentry/react";
 
@@ -26,12 +26,12 @@ const App = () => {
           element={!isSignedIn ? <AuthPage /> : <Navigate to={"/"} replace />}
         />
 
-        {/* <Route
+        <Route
           path="/call/:id"
           element={
             isSignedIn ? <CallPage /> : <Navigate to={"/auth"} replace />
           }
-        /> */}
+        />
 
         <Route
           path="*"
