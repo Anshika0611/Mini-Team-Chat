@@ -13,7 +13,7 @@ import {
   Thread,
   Window,
 } from "stream-chat-react";
-import "../styles/stream-chat-theme.css";
+import "../Styles/stream-chat-theme.css";
 import { Hash, Plus, Users} from "lucide-react";
 import CreateChannelModal from "../Components/CreateChannelModal";
 import CustomChannelPreview from "../Components/CustomChannelPreview";
