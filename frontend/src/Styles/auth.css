@@ -1,7 +1,7 @@
-*{
+/* *{
   margin: 0px;
   padding: 0px;
-}
+} */
 .auth-container {
   min-height: 100vh;
   display: flex;
